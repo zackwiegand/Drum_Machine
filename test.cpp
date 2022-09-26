@@ -2,24 +2,28 @@
 #include <cstdlib>
 #include <unistd.h>
 using namespace std;
-
+int delay = 250000;
 
 int main()
 {
     static int myCase = -1;
-    for (int i = 0; i < 12; i++)
+    cout << "\\\\\\"     << flush;
+    for (int i = 0; i < 21; i++)
     {   
 
-        ++myCase;
+        myCase = i % 6;
         switch(myCase)
         {
-            case 0: cout << "(-:" << flush; sleep(1); break;
-            case 1: cout << "\b8" << flush; sleep(1); break;
-            case 2: cout << "\b:" << flush; sleep(1); break;
+            case 0: cout << "\b/"        << flush; usleep(delay); break;
+            case 1: cout << "\b\b//"     << flush; usleep(delay); break;
+            case 2: cout << "\b\b\b///"  << flush; usleep(delay); break;
+            case 3: cout << "\b\b\b\\//" << flush; usleep(delay); break;
+            case 4: cout << "\b\b\\/"    << flush; usleep(delay); break;
+            case 5: cout << "\b\\"       << flush; usleep(delay); break;
         }
-        myCase = i % 2;
+        
     }
-    cout << "Good bye!" << endl;
+    cout << endl << "Good bye!" << endl;
     return(0);
 
 }
